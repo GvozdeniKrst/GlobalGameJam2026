@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://dgygyals1url2"]
 
+[ext_resource type="PackedScene" uid="uid://b4rw44noc7id2" path="res://Characters/Enemy.tscn" id="1_v05de"]
+[ext_resource type="Script" uid="uid://dqk85ru16ej4n" path="res://Scripts/Enemy_AI.gd" id="2_ue0ry"]
+[ext_resource type="PackedScene" uid="uid://ljmsp3p32xk2" path="res://Characters/player.tscn" id="3_1y7xn"]
+
 [node name="EnemyAiTestingScene" type="Node2D" unique_id=750319205]
+
+[node name="Enemy" parent="." unique_id=276410907 instance=ExtResource("1_v05de")]
+script = ExtResource("2_ue0ry")
+
+[node name="CharacterBody2D" parent="." unique_id=726463777 instance=ExtResource("3_1y7xn")]
+position = Vector2(41, 0)
