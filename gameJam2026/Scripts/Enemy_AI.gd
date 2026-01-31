@@ -13,6 +13,7 @@ func _physics_process(delta):
 	attack_timer -= delta
 	$RayCast2D.enabled = true
 	velocity.x = direction
+	velocity.y += 45
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
 		if collider.name == "Player" and attack_timer <= 0:
