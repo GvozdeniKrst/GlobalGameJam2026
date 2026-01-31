@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="GameJam2026"
+run/main_scene="uid://duh5di7tpih1c"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="GameJam2026"
 
 [physics]
 
@@ -20,4 +30,5 @@ config/icon="res://icon.svg"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
