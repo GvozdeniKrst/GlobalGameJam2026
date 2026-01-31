@@ -17,4 +17,5 @@ texture = ExtResource("2_eovys")
 shape = SubResource("RectangleShape2D_eovys")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1797734223]
+visible = false
 texture = ExtResource("3_vb825")
