@@ -11,6 +11,10 @@ var CURRENTHP := MAXHP
 
 var ISATTACKING := false
 
+var MASKS = []
+var CURRENTMASK
+var ISWEARINGMASK = false
+
 func _physics_process(delta):
 	handle_input(delta)
 	apply_physics(delta)
