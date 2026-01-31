@@ -30,6 +30,8 @@ func _physics_process(delta):
 	
 	velocity.x = lerp(velocity.x,0.0,0.2)
 	
+	print()
+	
 func take_damage(DAMAGETAKEN: int):
 	if CURRENTHP <= 0:
 		return
