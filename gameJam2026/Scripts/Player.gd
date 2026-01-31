@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var SPEED = 180 
 const GRAVITY = 35
-const JUMPFORCE = -900
+const JUMPFORCE = -2000
 const MAXHP = 2
 var CURRENTHP = MAXHP
 
@@ -28,4 +28,6 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	velocity.x = lerp(velocity.x,0,0.2)
+	velocity.x = lerp(velocity.x,0.0,0.2)
+	
+	print(CURRENTHP);
