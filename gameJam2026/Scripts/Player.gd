@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var SPEED = 180 
+var SPEED = 380 
 const GRAVITY = 35
-const JUMPFORCE = -2000
+const JUMPFORCE = -1000
 const MAXHP = 2
 var CURRENTHP = MAXHP
 
