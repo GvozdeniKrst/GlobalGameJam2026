@@ -2,6 +2,8 @@ extends CharacterBody2D
 var direction = 360
 var attack_cooldown = 3.0
 var attack_timer = 0
+var push_timer = 2
+var pushed = false
 @onready var ray_cast: RayCast2D = $RayCast2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +13,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	attack_timer -= delta
+	if pushed == true:
+		push_timer -= delta
 	$RayCast2D.enabled = true
 	velocity.x = direction
 	velocity.y += 45
@@ -19,8 +23,20 @@ func _physics_process(delta):
 		if collider.name == "Player" and attack_timer <= 0:
 			collider.take_damage(1)
 			attack_timer = attack_cooldown
-			pass
+			get_pushed_back()
 		elif collider.name != "Player":
 			direction *= -1
 			ray_cast.target_position *= -1
+			push_timer = 2
+			pushed = false
+	if push_timer <= 0:
+		direction *= -1
+		ray_cast.target_position *= -1
+		push_timer = 2
+		pushed = false
 	move_and_slide()
+
+func get_pushed_back():
+	direction *= -1
+	ray_cast.target_position *= -1
+	pushed = true
