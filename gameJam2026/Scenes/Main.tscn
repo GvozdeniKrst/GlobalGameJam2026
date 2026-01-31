@@ -176,10 +176,10 @@ tile_set = SubResource("TileSet_jw32o")
 collision_enabled = false
 
 [node name="Enemy" parent="Pillartiles" unique_id=276410907 instance=ExtResource("2_idj7w")]
-position = Vector2(663, 176)
+position = Vector2(1363, 104)
 
 [node name="Player" parent="Pillartiles" unique_id=726463777 instance=ExtResource("1_r150o")]
-position = Vector2(1582, -161)
+position = Vector2(1649, -187)
 
 [node name="Camera2D" type="Camera2D" parent="Pillartiles/Player" unique_id=36016344]
 zoom = Vector2(0.5, 0.5)

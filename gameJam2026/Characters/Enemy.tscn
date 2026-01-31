@@ -7,6 +7,7 @@
 size = Vector2(33.5, 33.5)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=276410907]
+scale = Vector2(3.8, 3.8)
 script = ExtResource("1_1oqew")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1272642779]
