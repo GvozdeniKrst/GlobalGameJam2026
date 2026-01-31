@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b2hlckt45ofpt" path="res://Scripts/Player.gd" id="1_5mj4t"]
 [ext_resource type="Texture2D" uid="uid://iud5lfp5pv3n" path="res://icon.svg" id="2_eovys"]
-[ext_resource type="Script" uid="uid://d1qbpxieshnqb" path="res://Characters/collision_shape_2d.gd" id="3_vb825"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eovys"]
 size = Vector2(128, 128)
@@ -15,4 +14,3 @@ texture = ExtResource("2_eovys")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2103510641]
 shape = SubResource("RectangleShape2D_eovys")
-script = ExtResource("3_vb825")
