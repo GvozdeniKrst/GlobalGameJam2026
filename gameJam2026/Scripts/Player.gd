@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 const MAXSPEED := 500
 const ACCELERATION = 2000
-const GRAVITY := 35
-const JUMPFORCE := -1000
+const GRAVITY := 45
+const JUMPFORCE := -1250
 const ATTACKFRICTION := 1200
 
 const MAXHP := 2
@@ -14,7 +14,9 @@ var ISATTACKING := false
 func _physics_process(delta):
 	handle_input(delta)
 	apply_physics(delta)
+	handle_platform_fallthrough()
 	move_and_slide()
+	
 
 func handle_input(delta):
 	if ISATTACKING:
@@ -46,7 +48,7 @@ func apply_physics(delta):
 		velocity.x = move_toward(velocity.x, 0, ATTACKFRICTION * delta)
 
 	velocity.y += GRAVITY
-
+	
 func _on_animation_finished(anim_name):
 	if anim_name == "attack":
 		ISATTACKING = false
@@ -58,3 +60,9 @@ func take_damage(damage: int):
 
 	CURRENTHP -= damage
 	print(CURRENTHP)
+	
+func handle_platform_fallthrough():
+	if Input.is_action_pressed("down"):
+		set_collision_mask_value(5, false)
+	else:
+		set_collision_mask_value(5, true)
