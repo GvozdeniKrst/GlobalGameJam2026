@@ -7,6 +7,6 @@
 [node name="Enemy" parent="." unique_id=276410907 instance=ExtResource("1_v05de")]
 position = Vector2(91, 39)
 
-[node name="Enemy2" parent="." unique_id=741172202 instance=ExtResource("1_v05de")]
+[node name="JohnEnemy" parent="." unique_id=741172202 instance=ExtResource("1_v05de")]
 position = Vector2(146, 39)
 up_direction = Vector2(1, 0)
