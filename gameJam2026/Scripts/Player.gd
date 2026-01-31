@@ -29,11 +29,11 @@ func handle_input(delta):
 
 	var dir := Input.get_axis("left", "right")
 	var TARGETSPEED := dir * MAXSPEED
-	#if dir != 0:
-		#$Sprite.play("walk")
-		#$Sprite.flip_h = dir < 0
-	#else:
-		#$Sprite.play("idle")
+	if dir != 0:
+		$Sprite.play("walk")
+		$Sprite.flip_h = dir < 0
+	else:
+		$Sprite.play("idle")
 
 	velocity.x = move_toward(velocity.x, TARGETSPEED, ACCELERATION * delta)
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -43,10 +43,9 @@ func handle_input(delta):
 	if Input.is_action_just_pressed("attack"):
 		start_attack()
 
-
 func start_attack():
 	ISATTACKING = true
-	# $Sprite.play("attack")
+	$Sprite.play("attack")
 
 func apply_physics(delta):
 	if ISATTACKING:
@@ -54,10 +53,9 @@ func apply_physics(delta):
 
 	velocity.y += GRAVITY
 	
-func _on_animation_finished(anim_name):
-	if anim_name == "attack":
+func _on_sprite_animation_finished():
 		ISATTACKING = false
-		# $Sprite.play("idle")
+		$Sprite.play("idle")
 
 func take_damage(damage: int):
 	if CURRENTHP <= 0:
