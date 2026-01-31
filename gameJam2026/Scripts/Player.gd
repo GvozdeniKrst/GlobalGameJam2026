@@ -1,40 +1,60 @@
 extends CharacterBody2D
 
-var SPEED = 380 
-const GRAVITY = 35
-const JUMPFORCE = -1000
-const MAXHP = 2
-var CURRENTHP = MAXHP
+const MAXSPEED := 500
+const ACCELERATION = 2000
+const GRAVITY := 35
+const JUMPFORCE := -1000
+const ATTACKFRICTION := 1200
+
+const MAXHP := 2
+var CURRENTHP := MAXHP
+
+var ISATTACKING := false
 
 func _physics_process(delta):
-	if Input.is_action_pressed("right"):
-		velocity.x = SPEED
+	handle_input(delta)
+	apply_physics(delta)
+	move_and_slide()
+
+func handle_input(delta):
+	if ISATTACKING:
+		return
+
+	var dir := Input.get_axis("left", "right")
+	var TARGETSPEED := dir * MAXSPEED
+	#if dir != 0:
 		#$Sprite.play("walk")
-		#$Sprite.flip_h = false
-	elif Input.is_action_pressed("left"):
-		velocity.x = -SPEED
-		#$Sprite.play("walk")
-		#$Sprite.flip_h = true
+		#$Sprite.flip_h = dir < 0
 	#else:
 		#$Sprite.play("idle")
-		
-	#if not is_on_floor():
-		#$Sprite.play("air")
-		
-	velocity.y = velocity.y + GRAVITY
-	
+
+	velocity.x = move_toward(velocity.x, TARGETSPEED, ACCELERATION * delta)
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMPFORCE
-	
-	move_and_slide()
-	
-	velocity.x = lerp(velocity.x,0.0,0.2)
-	
-	print()
-	
-func take_damage(DAMAGETAKEN: int):
+		# $Sprite.play("jump")
+
+	if Input.is_action_just_pressed("attack"):
+		start_attack()
+
+
+func start_attack():
+	ISATTACKING = true
+	# $Sprite.play("attack")
+
+func apply_physics(delta):
+	if ISATTACKING:
+		velocity.x = move_toward(velocity.x, 0, ATTACKFRICTION * delta)
+
+	velocity.y += GRAVITY
+
+func _on_animation_finished(anim_name):
+	if anim_name == "attack":
+		ISATTACKING = false
+		# $Sprite.play("idle")
+
+func take_damage(damage: int):
 	if CURRENTHP <= 0:
 		return
-		
-		CURRENTHP -= DAMAGETAKEN
-		print(CURRENTHP)
+
+	CURRENTHP -= damage
+	print(CURRENTHP)
