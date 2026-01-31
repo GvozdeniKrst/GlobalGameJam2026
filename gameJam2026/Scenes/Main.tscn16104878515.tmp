@@ -1,0 +1,63 @@
+[gd_scene format=4 uid="uid://cbaoajew0ap22"]
+
+[ext_resource type="PackedScene" uid="uid://ljmsp3p32xk2" path="res://Characters/player.tscn" id="1_r150o"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c1w88"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c1w88"]
+load_path = "res://.godot/imported/tile_sheet_128px_by_128px.png-4cc77c89e38d2d98e7f94b42b71b0fdd.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idj7w"]
+resource_name = "sample_tilesheet"
+texture = SubResource("CompressedTexture2D_c1w88")
+texture_region_size = Vector2i(128, 128)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -36, 64, -36, 64, 20, -64, 20)
+0:1/0/physics_layer_0/polygon_0/one_way = true
+0:1/0/custom_data_1 = true
+0:1/0/custom_data_2 = true
+1:1/next_alternative_id = 3
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -64, -64, 64, 64, 64)
+1:1/0/custom_data_0 = 1
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c1w88")
+0:0/0/custom_data_3 = true
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_r150o"]
+resource_name = "sample_scene_collection"
+
+[sub_resource type="TileSet" id="TileSet_kln2b"]
+tile_size = Vector2i(128, 128)
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
+custom_data_layer_0/name = "damage_to_player"
+custom_data_layer_0/type = 2
+custom_data_layer_1/name = "pass_through_bottom"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "fall_through"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "background"
+custom_data_layer_3/type = 1
+custom_data_layer_4/name = ""
+custom_data_layer_4/type = 0
+sources/0 = SubResource("TileSetAtlasSource_idj7w")
+sources/1 = SubResource("TileSetScenesCollectionSource_r150o")
+
+[node name="Main" type="Node2D" unique_id=523519200]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1261206471]
+tile_map_data = PackedByteArray("AAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAAAAAYAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAQAAAABAAAAAAABAAUAAAABAAAAAAABAAYAAAABAAAAAAACAAIAAAABAAAAAAACAAMAAAABAAAAAAACAAQAAAABAAAAAAACAAUAAAABAAAAAAACAAYAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAADAAYAAAABAAAAAAAEAAIAAAABAAAAAAAEAAMAAAABAAAAAAAEAAQAAAABAAAAAAAEAAUAAAABAAAAAAAEAAYAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAFAAUAAAABAAAAAAAFAAYAAAABAAAAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAGAAYAAAABAAAAAAAHAAIAAAABAAAAAAAHAAMAAAABAAAAAAAHAAQAAAABAAAAAAAHAAUAAAABAAAAAAAHAAYAAAABAAAAAAAIAAIAAAABAAAAAAAIAAMAAAABAAAAAAAIAAQAAAABAAAAAAAIAAUAAAABAAAAAAAIAAYAAAABAAAAAAAJAAIAAAABAAAAAAAJAAMAAAABAAAAAAAJAAQAAAABAAAAAAAJAAUAAAABAAAAAAAJAAYAAAABAAAAAAAKAAIAAAABAAAAAAAKAAMAAAABAAAAAAAKAAQAAAABAAAAAAAKAAUAAAABAAAAAAAKAAYAAAABAAAAAAALAAIAAAABAAAAAAALAAMAAAABAAAAAAALAAQAAAABAAAAAAALAAUAAAABAAAAAAALAAYAAAABAAAAAAAMAAIAAAABAAAAAAAMAAMAAAABAAAAAAAMAAQAAAABAAAAAAAMAAUAAAABAAAAAAAMAAYAAAABAAAAAAANAAIAAAABAAAAAAANAAMAAAABAAAAAAANAAQAAAABAAAAAAANAAUAAAABAAAAAAANAAYAAAABAAAAAAAOAAIAAAABAAAAAAAOAAMAAAABAAAAAAAOAAQAAAABAAAAAAAOAAUAAAABAAAAAAAOAAYAAAABAAAAAAAPAAIAAAABAAAAAAAPAAMAAAABAAAAAAAPAAQAAAABAAAAAAAPAAUAAAABAAAAAAAPAAYAAAABAAAAAAAQAAIAAAABAAAAAAAQAAMAAAABAAAAAAAQAAQAAAABAAAAAAAQAAUAAAABAAAAAAAQAAYAAAABAAAAAAARAAIAAAABAAAAAAARAAMAAAABAAAAAAARAAQAAAABAAAAAAARAAUAAAABAAAAAAARAAYAAAABAAAAAAASAAIAAAABAAAAAAASAAMAAAABAAAAAAASAAQAAAABAAAAAAASAAUAAAABAAAAAAASAAYAAAABAAAAAAATAAIAAAABAAAAAAATAAMAAAABAAAAAAATAAQAAAABAAAAAAATAAUAAAABAAAAAAATAAYAAAABAAAAAAAUAAIAAAABAAAAAAAUAAMAAAABAAAAAAAUAAQAAAABAAAAAAAUAAUAAAABAAAAAAAUAAYAAAABAAAAAAAOAAAAAAAAAAEAAAAPAAAAAAAAAAEAAAAQAAAAAAAAAAEAAAAJAP//AAAAAAEAAAAIAP//AAAAAAEAAAAHAP//AAAAAAEAAAALAP//AAAAAAEAAAAVAAIAAAABAAEAAAAWAAIAAAABAAEAAAAXAAIAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_kln2b")
+
+[node name="CharacterBody2D" parent="." unique_id=726463777 instance=ExtResource("1_r150o")]
+position = Vector2(1583, -162)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=36016344]

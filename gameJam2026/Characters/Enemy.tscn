@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://b4rw44noc7id2"]
 
+[ext_resource type="Script" uid="uid://dqk85ru16ej4n" path="res://Scripts/Enemy_AI.gd" id="1_1oqew"]
+[ext_resource type="Texture2D" uid="uid://iud5lfp5pv3n" path="res://icon.svg" id="2_mig5a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8w4m"]
+
 [node name="Enemy" type="CharacterBody2D" unique_id=276410907]
+script = ExtResource("1_1oqew")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1272642779]
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("2_mig5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492727398]
+shape = SubResource("CapsuleShape2D_p8w4m")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1813266843]
+target_position = Vector2(50, 0)
