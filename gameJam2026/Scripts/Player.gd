@@ -10,6 +10,7 @@ const MAXHP := 2
 var CURRENTHP := MAXHP
 
 var ISATTACKING := false
+var ISDEAD := false
 
 var MASKS = []
 var CURRENTMASK
@@ -23,7 +24,7 @@ func _physics_process(delta):
 	
 
 func handle_input(delta):
-	if ISATTACKING:
+	if ISATTACKING or ISDEAD:
 		return
 
 	var dir := Input.get_axis("left", "right")
@@ -64,9 +65,19 @@ func take_damage(damage: int):
 
 	CURRENTHP -= damage
 	print(CURRENTHP)
+	if CURRENTHP == 0:
+		die()
 	
 func handle_platform_fallthrough():
 	if Input.is_action_pressed("down"):
 		set_collision_mask_value(5, false)
 	else:
 		set_collision_mask_value(5, true)
+		
+func die():
+	ISDEAD = true
+	$Sprite.play("dead")
+	
+		
+# this will be used to tell the game to equip the appropriate mask later
+@onready var face_sprite = $FaceSprite
