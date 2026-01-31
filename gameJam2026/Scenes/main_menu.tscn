@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://duh5di7tpih1c"]
 
-[ext_resource type="Texture2D" uid="uid://bls36pbc2jtfv" path="res://ASSETS/Images/temp_bg.png" id="1_fhxkq"]
+[ext_resource type="Script" uid="uid://jqkxaymq7kge" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://bls36pbc2jtfv" path="res://ASSETS/Images/BGs/temp_bg.png" id="2_1ehe0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78xwo"]
-texture = ExtResource("1_fhxkq")
+texture = ExtResource("2_1ehe0")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78xwo"]
 bg_color = Color(1, 1, 1, 1)
@@ -13,13 +14,14 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 
-[node name="UiTest" type="Control" unique_id=1496124447]
+[node name="main_menu" type="Control" unique_id=1496124447]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_48xlc")
 
 [node name="Panel" type="Panel" parent="." unique_id=184015728]
 layout_mode = 1
@@ -68,3 +70,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_78xwo")
 text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
