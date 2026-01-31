@@ -3,21 +3,23 @@ extends CharacterBody2D
 var SPEED = 180 
 const GRAVITY = 35
 const JUMPFORCE = -900
+const MAXHP = 2
+var CURRENTHP = MAXHP
 
 func _physics_process(delta):
 	if Input.is_action_pressed("right"):
 		velocity.x = SPEED
-		$Sprite.play("walk")
-		$Sprite.flip_h = false
+		#$Sprite.play("walk")
+		#$Sprite.flip_h = false
 	elif Input.is_action_just_pressed("left"):
 		velocity.x = -SPEED
-		$Sprite.play("walk")
-		$Sprite.flip_h = true
-	else:
-		$Sprite.play("idle")
+		#$Sprite.play("walk")
+		#$Sprite.flip_h = true
+	#else:
+		#$Sprite.play("idle")
 		
-	if not is_on_floor():
-		$Sprite.play("air")
+	#if not is_on_floor():
+		#$Sprite.play("air")
 		
 	velocity.y = velocity.y + GRAVITY
 	
