@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cbaoajew0ap22"]
 
 [ext_resource type="PackedScene" uid="uid://ljmsp3p32xk2" path="res://Characters/player.tscn" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://b4rw44noc7id2" path="res://Characters/Enemy.tscn" id="2_idj7w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c1w88"]
 vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
@@ -65,7 +66,10 @@ tile_map_data = PackedByteArray("AAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAA
 tile_set = SubResource("TileSet_kln2b")
 script = SubResource("GDScript_r150o")
 
-[node name="CharacterBody2D" parent="." unique_id=726463777 instance=ExtResource("1_r150o")]
+[node name="Player" parent="." unique_id=726463777 instance=ExtResource("1_r150o")]
 position = Vector2(1583, -162)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=36016344]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=36016344]
+
+[node name="Enemy" parent="." unique_id=276410907 instance=ExtResource("2_idj7w")]
+position = Vector2(664, 175)
