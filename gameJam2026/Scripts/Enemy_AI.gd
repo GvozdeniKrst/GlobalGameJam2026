@@ -13,8 +13,9 @@ func _physics_process(delta):
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
 		if collider.name == "Player":
-			print("ATTACK")
-		else:
+			collider.take_damage(10)
+			pass
+		elif collider.name != "Player":
 			direction *= -1
 			ray_cast.target_position *= -1
 	move_and_slide()

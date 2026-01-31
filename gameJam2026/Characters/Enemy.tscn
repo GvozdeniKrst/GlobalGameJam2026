@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://dqk85ru16ej4n" path="res://Scripts/Enemy_AI.gd" id="1_1oqew"]
 [ext_resource type="Texture2D" uid="uid://iud5lfp5pv3n" path="res://icon.svg" id="2_mig5a"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8w4m"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mig5a"]
+size = Vector2(33.5, 33.5)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=276410907]
 script = ExtResource("1_1oqew")
@@ -13,7 +14,8 @@ scale = Vector2(0.26, 0.26)
 texture = ExtResource("2_mig5a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492727398]
-shape = SubResource("CapsuleShape2D_p8w4m")
+position = Vector2(0.25, -0.25)
+shape = SubResource("RectangleShape2D_mig5a")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1813266843]
 target_position = Vector2(50, 0)
