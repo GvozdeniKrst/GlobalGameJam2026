@@ -30,13 +30,9 @@ func _physics_process(delta):
 	
 	velocity.x = lerp(velocity.x,0.0,0.2)
 	
-<<<<<<< HEAD
-	print(CURRENTHP);
-=======
 func take_damage(DAMAGETAKEN: int):
 	if CURRENTHP <= 0:
 		return
 		
 		CURRENTHP -= DAMAGETAKEN
 		print(CURRENTHP)
->>>>>>> 70f603c6041ea975e19a898193b80abb949e4bc5
