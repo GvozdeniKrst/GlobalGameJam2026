@@ -9,6 +9,8 @@ const ATTACKFRICTION := 1200
 const MAXHP := 2
 var current_hp := MAXHP
 var hasMask := false
+var in_box_hitbox = false
+var hiding = false
 
 @onready var state_machine = $StateMachine
 @onready var sprite = $Sprite
@@ -31,6 +33,7 @@ func _physics_process(delta):
 	state_machine.physics_update(delta)
 	handle_platform_fallthrough()
 	move_and_slide()
+	_handle_hiding()
 
 func _unhandled_input(event):
 	state_machine.handle_input(event)
@@ -73,3 +76,17 @@ func _on_level_1_child_exiting_tree(node: Node) -> void:
 		hasMask = true;
 		portrait_sprite.frame = 3
 	
+
+
+func _on_box_collision_body_entered(body: Node2D) -> void:
+	in_box_hitbox = true
+	
+func _handle_hiding():
+	if in_box_hitbox and Input.is_action_pressed("below"):
+		hiding = true
+	else:
+		hiding = false
+
+
+func _on_box_collision_body_exited(body: Node2D) -> void:
+		in_box_hitbox = false

@@ -609,6 +609,8 @@ size = Vector2(90, 90)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycmr1"]
 size = Vector2(63, 256)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au75x"]
+
 [node name="Level2" type="Node2D" unique_id=1319851060]
 script = ExtResource("1_ejprb")
 
@@ -659,7 +661,6 @@ wait_time = 0.6
 [node name="Boxes" type="TileMapLayer" parent="." unique_id=641892792]
 tile_map_data = PackedByteArray("AABIAAEAAAA9AAAAAAAOAAEAAAA9AAAAAABRAAAAAAA9AAAAAABRAAEAAAA9AAAAAABSAAEAAAA9AAAAAAA=")
 tile_set = SubResource("TileSet_1je60")
-collision_enabled = false
 
 [node name="RedMask" type="Area2D" parent="." unique_id=571504517]
 position = Vector2(6317, -1411)
@@ -738,6 +739,13 @@ collision_layer = 16
 position = Vector2(84, -18)
 shape = SubResource("RectangleShape2D_ycmr1")
 
+[node name="BoxCollision" type="Area2D" parent="." unique_id=460044294]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxCollision" unique_id=1970562953]
+shape = SubResource("RectangleShape2D_au75x")
+
 [connection signal="child_exiting_tree" from="." to="Player" method="_on_level_1_child_exiting_tree"]
 [connection signal="body_entered" from="RedMask" to="." method="_on_red_mask_body_entered"]
 [connection signal="body_entered" from="GoldMask" to="." method="_on_door_to_level_3_body_entered"]
+[connection signal="body_entered" from="BoxCollision" to="Player" method="_on_box_collision_body_entered"]
+[connection signal="body_exited" from="BoxCollision" to="Player" method="_on_box_collision_body_exited"]

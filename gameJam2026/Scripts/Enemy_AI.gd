@@ -42,7 +42,7 @@ func _physics_process(delta):
 	velocity.y += 45
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
-		if collider.name == "Player" and attack_timer <= 0:
+		if collider.name == "Player" and attack_timer <= 0 && get_parent().get_node("Player").hiding == false:
 			if !chasing_player:
 				notice_player = true;
 			chasing_player = true;

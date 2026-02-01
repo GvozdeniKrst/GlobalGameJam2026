@@ -24,9 +24,9 @@
 [ext_resource type="Script" uid="uid://c6rroh7m5q3re" path="res://Scripts/crouch.gd" id="18_0qaj4"]
 [ext_resource type="Script" uid="uid://0j7jkt3bcjio" path="res://Scripts/area_attack.gd" id="18_3ibbd"]
 [ext_resource type="Script" uid="uid://bc8sirdklhopv" path="res://Scripts/jump.gd" id="19_0qaj4"]
-[ext_resource type="Script" uid="uid://ctiefqo4hhg2q" path="res://Scripts/dead.gd" id="20_h3pa0"]
+[ext_resource type="Script" path="res://Scripts/dead.gd" id="20_h3pa0"]
 [ext_resource type="Script" uid="uid://huvrvxlxvg2v" path="res://Scripts/attack.gd" id="20_ibds6"]
-[ext_resource type="Script" uid="uid://c0qbeo72l236v" path="res://Scripts/hurt.gd" id="26_bwhr1"]
+[ext_resource type="Script" path="res://Scripts/hurt.gd" id="26_bwhr1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65n15"]
 animations = [{
@@ -172,6 +172,8 @@ sprite_frames = SubResource("SpriteFrames_65n15")
 animation = &"dead"
 
 [node name="Area2D" type="Area2D" parent="Sprite" unique_id=230456768]
+collision_layer = 129
+collision_mask = 129
 script = ExtResource("18_3ibbd")
 
 [node name="AttackHitbox" type="CollisionShape2D" parent="Sprite/Area2D" unique_id=1140512827]
