@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b4rw44noc7id2" path="res://Characters/Enemy.tscn" id="3_ysn8j"]
 [ext_resource type="Texture2D" uid="uid://kjee1lex68ug" path="res://ASSETS/tilesheet/TileMapGameJam2026v2.png" id="4_6ll4n"]
 [ext_resource type="PackedScene" uid="uid://ljmsp3p32xk2" path="res://Characters/player.tscn" id="5_kylad"]
+[ext_resource type="Texture2D" uid="uid://c5de8fhcai425" path="res://ASSETS/tilesheet/portrait_sheet.png" id="6_t3or0"]
 [ext_resource type="Texture2D" uid="uid://dehahsr1unou" path="res://ASSETS/tilesheet/TileMapGameJam2026v3.png" id="5_t3or0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
@@ -321,6 +322,15 @@ position = Vector2(1650, -188)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=36016344]
 zoom = Vector2(0.5, 0.5)
 
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D" unique_id=38580154]
+position = Vector2(-890.5, -399.5)
+scale = Vector2(1.5664063, 1.5664063)
+texture = ExtResource("6_t3or0")
+hframes = 6
+
+[node name="Timer" type="Timer" parent="Player" unique_id=1914867610]
+wait_time = 0.6
+
 [node name="GoldMask" type="Area2D" parent="." unique_id=1603330674]
 position = Vector2(2862, 171)
 
@@ -351,5 +361,6 @@ offset_bottom = 71.0
 color = Color(1, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="GoldMask" to="." method="_on_door_to_level_2_body_entered"]
 [connection signal="body_entered" from="RedMask" to="." method="_on_red_mask_body_entered"]
