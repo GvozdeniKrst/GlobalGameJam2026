@@ -33,7 +33,8 @@ func handle_input(_event):
 	var dir := Input.get_axis("left", "right")
 
 	if Input.is_action_just_pressed("attack"):
-		state_machine.change_state(state_machine.get_node("Attack"))
+		if player.hasMask:
+			state_machine.change_state(state_machine.attack)
 	elif Input.is_action_just_pressed("jump"):
 		state_machine.change_state(state_machine.get_node("Jump"))
 	elif Input.is_action_pressed("below"):
