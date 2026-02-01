@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="GameJam2026"
-run/main_scene="uid://dgygyals1url2"
+run/main_scene="uid://duh5di7tpih1c"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [dotnet]
 

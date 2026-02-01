@@ -614,3 +614,4 @@ gravity = Vector2(100, -100)
 
 [connection signal="child_exiting_tree" from="." to="Player" method="_on_level_1_child_exiting_tree"]
 [connection signal="body_entered" from="RedMask" to="." method="_on_red_mask_body_entered"]
+[connection signal="body_entered" from="GoldMask" to="." method="_on_door_to_level_3_body_entered"]
