@@ -85,8 +85,6 @@ func _handle_hiding():
 		hiding = true
 	else:
 		hiding = false
-		
-	print(hiding)
 
 func _on_box_collision_body_exited(body: Node2D) -> void:
 	in_box_hitbox = false
