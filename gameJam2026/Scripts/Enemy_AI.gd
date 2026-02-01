@@ -6,6 +6,7 @@ var push_timer = 2
 var pushed = false
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var my_sprite = $Sprite2D
+@onready var ray_cast_platform = $PlatformFind
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$RayCast2D.enabled = true
@@ -38,8 +39,15 @@ func _physics_process(delta):
 		elif collider.name != "Player":
 			direction *= -1
 			ray_cast.target_position *= -1
+			ray_cast_platform.target_position.x *= -1
 			push_timer = 2
 			pushed = false
+	if not ray_cast_platform.is_colliding():
+		direction *= -1
+		ray_cast.target_position *= -1
+		ray_cast_platform.target_position.x *= -1
+		
+		pass
 	if push_timer <= 0:
 		$RayCast2D.enabled = true
 		push_timer = 2
