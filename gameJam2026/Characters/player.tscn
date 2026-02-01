@@ -17,12 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://cv8k3untiyigs" path="res://ASSETS/player/launch-1.png" id="8_mevwr"]
 [ext_resource type="Texture2D" uid="uid://y4bmiwdaufpj" path="res://ASSETS/player/fall-1.png" id="9_iga2k"]
 [ext_resource type="Script" uid="uid://bcmj7kqoprrou" path="res://Scripts/idle.gd" id="14_mevwr"]
-[ext_resource type="Script" uid="uid://dx6qixgurmsr" path="res://Scripts/state_machine.gd" id="15_iga2k"]
-[ext_resource type="Script" uid="uid://fd6ig46l8d12" path="res://Scripts/walk.gd" id="17_8an5f"]
+[ext_resource type="Script" path="res://Scripts/state_machine.gd" id="15_iga2k"]
+[ext_resource type="Script" path="res://Scripts/walk.gd" id="17_8an5f"]
 [ext_resource type="Script" uid="uid://c6rroh7m5q3re" path="res://Scripts/crouch.gd" id="18_0qaj4"]
 [ext_resource type="Script" uid="uid://bc8sirdklhopv" path="res://Scripts/jump.gd" id="19_0qaj4"]
-[ext_resource type="Script" uid="uid://ctiefqo4hhg2q" path="res://Scripts/dead.gd" id="20_h3pa0"]
-[ext_resource type="Script" uid="uid://huvrvxlxvg2v" path="res://Scripts/attack.gd" id="20_ibds6"]
+[ext_resource type="Script" path="res://Scripts/dead.gd" id="20_h3pa0"]
+[ext_resource type="Script" path="res://Scripts/attack.gd" id="20_ibds6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65n15"]
 animations = [{

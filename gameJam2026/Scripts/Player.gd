@@ -20,7 +20,7 @@ func _ready() -> void:
 	portrait_sprite.frame = 0
 
 func handle_platform_fallthrough():
-	if Input.is_action_pressed("below"):
+	if Input.is_action_pressed("jump") and Input.is_action_pressed("below"):
 		set_collision_mask_value(5, false)
 	else:
 		set_collision_mask_value(5, true)
