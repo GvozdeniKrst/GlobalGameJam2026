@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvws2gih34hwp"]
 
 [ext_resource type="Script" uid="uid://dbux28ypqwmga" path="res://Scripts/credit_screen.gd" id="1_pw6ne"]
+[ext_resource type="FontFile" uid="uid://ba6312stx0nc7" path="res://ASSETS/Font/Ringlet-VzDB.ttf" id="2_60f6p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60f6p"]
 bg_color = Color(0.18893051, 0.18995963, 0.21568799, 1)
@@ -30,14 +31,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "STACY - CHARACTER ART, ANIMATIONS
-HARIS - BACKGROUND ART, LEVEL DESIGN, FLOATER
-ALLEN - ENEMY AI, ADDITIONAL PROGRAMMING
-DAMJAN - PLAYER SCRIPT, ADDITIONAL PROGRAMMING
-ADAM - LEVEL DESIGN, ADDITIONAL PROGRAMMING
-STEFAN - BACKGROUND ART, UI, ADDITIONAL 
-PROGRAMMING
-EZRA - AUDIO DESIGN, MUSIC"
+text = "STACY             CHARACTER ART, ANIMATIONS
+HARIS             BACKGROUND ART, LEVEL DESIGN, FLOATER
+ALLEN            ENEMY AI, ADDITIONAL PROGRAMMING
+DAMJAN        PLAYER SCRIPT, ADDITIONAL PROGRAMMING
+ADAM            LEVEL DESIGN, ADDITIONAL PROGRAMMING
+STEFAN         BACKGROUND ART, UI, ADDITIONAL 
+                        PROGRAMMING
+EZRA              AUDIO DESIGN, MUSIC"
 
 [node name="Button" type="Button" parent="Panel" unique_id=1025699099]
 layout_mode = 1
@@ -52,6 +53,7 @@ offset_right = 109.5
 offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_60f6p")
 theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxFlat_60f6p")
 text = "RETURN"
