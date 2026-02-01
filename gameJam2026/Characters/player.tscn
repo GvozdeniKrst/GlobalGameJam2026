@@ -173,9 +173,9 @@ animation = &"idle"
 frame_progress = 0.0481059
 
 [node name="Area2D" type="Area2D" parent="Sprite" unique_id=230456768]
+scale = Vector2(-1, 1)
 collision_layer = 129
 collision_mask = 129
-scale = Vector2(-1, 1)
 script = ExtResource("18_3ibbd")
 
 [node name="AttackHitbox" type="CollisionShape2D" parent="Sprite/Area2D" unique_id=1140512827]
