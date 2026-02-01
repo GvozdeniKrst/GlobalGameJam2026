@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_start_button_pressed() -> void:
 	print("Start pressed")
-	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
 
 
 func _on_credit_button_pressed() -> void:
