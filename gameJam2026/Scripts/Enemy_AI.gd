@@ -121,3 +121,11 @@ func get_pushed_back():
 
 func handle_platform_fallthrough():
 	set_collision_mask_value(5, true)
+
+func take_damage(amount: int):
+	HP -= amount
+	if HP == 0:
+		die()
+	
+func die():
+	queue_free()
