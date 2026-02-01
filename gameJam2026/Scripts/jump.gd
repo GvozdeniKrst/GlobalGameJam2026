@@ -17,7 +17,11 @@ func enter():
 func physics_update(delta):
 	if player:
 		var dir := Input.get_axis("left", "right")
-
+		
+		if sprite:
+			if dir != 0:
+				sprite.flip_h = dir < 0
+			
 		player.velocity.x = move_toward(
 			player.velocity.x,
 			dir * player.MAXSPEED,
