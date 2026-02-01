@@ -5,12 +5,24 @@
 [node name="LevelTransition" type="Node2D" unique_id=994184089]
 script = ExtResource("1_30st1")
 
-[node name="Button" type="Button" parent="." unique_id=1044150645]
-offset_left = 760.0
-offset_top = 419.0
-offset_right = 1057.0
-offset_bottom = 551.0
+[node name="Control" type="Control" parent="." unique_id=432874936]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control" unique_id=1044150645]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 22.712002
+anchor_top = 12.125001
+anchor_right = 22.712002
+anchor_bottom = 12.125001
+offset_left = -148.4801
+offset_top = -66.00003
+offset_right = 148.5199
+offset_bottom = 65.99997
 theme_override_font_sizes/font_size = 44
 text = "Go next kek"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
