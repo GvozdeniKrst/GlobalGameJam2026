@@ -11,6 +11,7 @@ var chasing_player_timer = 600
 var turning_around = false;
 var turn_around_timer = 90
 var HP = 1
+var spawn_timer = 10
 
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var my_sprite = $Sprite2D
@@ -25,12 +26,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
+	spawn_timer -= 1
 	my_sprite.flip_h = direction < 0
 	attack_timer -= delta
 	if pushed == true:
 		push_timer -= delta
-		my_sprite.self_modulate = Color(1,0,0)
 	else:
 		if !turning_around:
 			velocity.x = direction
@@ -65,18 +65,15 @@ func _physics_process(delta):
 			push_timer = 2
 			pushed = false
 	if not ray_cast_platform.is_colliding():
-		direction *= -1
-		ray_cast.target_position *= -1
-		ray_cast_platform.target_position.x *= -1
-			
-		if !turning_around:
+		if !turning_around and spawn_timer <= 0:
 			turning_around = true
 			if chasing_player:
 				turn_around_timer = 45
 			else:
 				turn_around_timer = 90
-		
+				
 		pass
+		
 	if push_timer <= 0:
 		$RayCast2D.enabled = true
 		push_timer = 2
@@ -113,6 +110,10 @@ func _physics_process(delta):
 		turn_around_timer -= 1
 	
 	if turn_around_timer <= 0:
+		if turning_around:
+			direction *= -1
+			ray_cast.target_position *= -1
+			ray_cast_platform.target_position.x *= -1
 		turning_around = false
 	
 	if chasing_player_timer <= 0:
@@ -120,8 +121,9 @@ func _physics_process(delta):
 	
 	handle_platform_fallthrough()
 	move_and_slide()
-	print(notice_player)
-	print(notice_player_timer)
+	print(turning_around)
+	print(turn_around_timer)
+	print(ray_cast_platform.is_colliding())
 
 func get_pushed_back():
 	velocity.x = 0
