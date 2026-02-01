@@ -6,6 +6,7 @@ var push_timer = 2
 var pushed = false
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var my_sprite = $Sprite2D
+@onready var ray_cast_platform = $PlatformFind
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$RayCast2D.enabled = true
@@ -14,10 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if(velocity.x != 0):
-		my_sprite.play("Walk")
-	else:
-		my_sprite.play("Idle")
+	
 	my_sprite.flip_h = direction < 0
 	attack_timer -= delta
 	if pushed == true:
@@ -25,18 +23,31 @@ func _physics_process(delta):
 		my_sprite.self_modulate = Color(1,0,0)
 	else:
 		velocity.x = direction
+	if(velocity.x != 0):
+		my_sprite.play("Walk")
+	else:
+		if push_timer <= 1.5 and my_sprite.animation_finished:
+			my_sprite.play("Idle")
 	velocity.y += 45
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
 		if collider.name == "Player" and attack_timer <= 0:
+			my_sprite.play("Attack")
 			collider.take_damage(1)
 			attack_timer = attack_cooldown
 			get_pushed_back()
 		elif collider.name != "Player":
 			direction *= -1
 			ray_cast.target_position *= -1
+			ray_cast_platform.target_position.x *= -1
 			push_timer = 2
 			pushed = false
+	if not ray_cast_platform.is_colliding():
+		direction *= -1
+		ray_cast.target_position *= -1
+		ray_cast_platform.target_position.x *= -1
+		
+		pass
 	if push_timer <= 0:
 		$RayCast2D.enabled = true
 		push_timer = 2
