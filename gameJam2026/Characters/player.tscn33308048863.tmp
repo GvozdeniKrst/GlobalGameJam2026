@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ljmsp3p32xk2"]
+
+[ext_resource type="Script" uid="uid://b2hlckt45ofpt" path="res://Scripts/Player.gd" id="1_5mj4t"]
+[ext_resource type="Texture2D" uid="uid://co4orh60yetah" path="res://ASSETS/player/idle_1.png" id="2_5slg2"]
+[ext_resource type="Texture2D" uid="uid://bswt8d2bcf50v" path="res://ASSETS/player/idle_2.png" id="3_cbmiu"]
+[ext_resource type="Texture2D" uid="uid://bls36pbc2jtfv" path="res://ASSETS/Images/BGs/temp_bg.png" id="3_vb825"]
+[ext_resource type="Texture2D" uid="uid://7jhxsc2ee2om" path="res://ASSETS/player/walk_1.png" id="4_p728j"]
+[ext_resource type="Texture2D" uid="uid://c76p7a7j02jdr" path="res://ASSETS/player/walk_2.png" id="5_5slg2"]
+[ext_resource type="Texture2D" uid="uid://i3l75l72y0kx" path="res://ASSETS/player/walk_3.png" id="6_cbmiu"]
+[ext_resource type="Texture2D" uid="uid://bpisk3q2mgbxm" path="res://ASSETS/player/walk_4.png" id="7_w3rah"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65n15"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5slg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cbmiu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_p728j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5slg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cbmiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w3rah")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eovys"]
+size = Vector2(47, 225.125)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=726463777]
+script = ExtResource("1_5mj4t")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1183139674]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_65n15")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2103510641]
+position = Vector2(-7.5, 4.5625)
+shape = SubResource("RectangleShape2D_eovys")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1797734223]
+visible = false
+texture = ExtResource("3_vb825")
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
