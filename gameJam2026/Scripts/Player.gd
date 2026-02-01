@@ -31,7 +31,6 @@ func _physics_process(delta):
 	state_machine.physics_update(delta)
 	handle_platform_fallthrough()
 	move_and_slide()
-	print(hasMask)
 
 func _unhandled_input(event):
 	state_machine.handle_input(event)

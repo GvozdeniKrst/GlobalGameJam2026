@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bkc8r0lmofgo6" path="res://ASSETS/tilesheet/TileMapGameJam2026Stand1.png" id="6_6ll4n"]
 [ext_resource type="Texture2D" uid="uid://c5de8fhcai425" path="res://ASSETS/tilesheet/portrait_sheet.png" id="6_t3or0"]
 [ext_resource type="Texture2D" uid="uid://c1d350xg1msu0" path="res://ASSETS/Images/gold-mask.png" id="8_kylad"]
-[ext_resource type="Script" path="res://Scenes/red_mask.gd" id="10_2h8qs"]
+[ext_resource type="Script" uid="uid://cpidiqpvta2gu" path="res://Scenes/red_mask.gd" id="10_2h8qs"]
 [ext_resource type="Texture2D" uid="uid://bgsm03eon6k6n" path="res://ASSETS/Images/red-mask.png" id="10_bdlbp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
