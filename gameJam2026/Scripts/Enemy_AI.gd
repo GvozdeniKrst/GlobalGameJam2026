@@ -42,12 +42,16 @@ func _physics_process(delta):
 	velocity.y += 45
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
-		if collider.name == "Player" and attack_timer <= 0 && get_parent().get_node("Player").hiding == false:
+		if collider.name == "Player" and attack_timer <= 0 and get_parent().get_node("Player").hiding == false:
 			if !chasing_player:
 				AudioController.play_alert()
 				notice_player = true;
+				
 			chasing_player = true;
-			notice_player_timer = 30
+			
+			if !notice_player:
+				notice_player_timer = 30
+				
 			chasing_player_timer = 600
 			if !notice_player:
 				my_sprite.play("Attack")
@@ -77,12 +81,11 @@ func _physics_process(delta):
 		$RayCast2D.enabled = true
 		push_timer = 2
 		pushed = false
-		my_sprite.self_modulate =  Color(1, 1, 1)
 		
 	# Enemy Stops on noticing player
 	if notice_player:
 		notice_player_timer -= 1
-		direction = 0
+		velocity.x = 0
 		exclamation_mark.visible = true
 		
 	
@@ -117,6 +120,8 @@ func _physics_process(delta):
 	
 	handle_platform_fallthrough()
 	move_and_slide()
+	print(notice_player)
+	print(notice_player_timer)
 
 func get_pushed_back():
 	velocity.x = 0

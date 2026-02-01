@@ -40,6 +40,9 @@ func play_land() -> void:
 	
 func play_stab() -> void:
 	$stab.play()
+	
+func play_pass() -> void:
+	$pass.play()
 
 func play_alert() -> void:
 	$alert.play()
