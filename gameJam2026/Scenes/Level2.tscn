@@ -712,6 +712,46 @@ position = Vector2(9439.001, 127.00001)
 collision_layer = 2
 collision_mask = 2
 
+[node name="Enemy3" parent="." unique_id=294183687 instance=ExtResource("11_au75x")]
+position = Vector2(6993, 1761)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy4" parent="." unique_id=1710690386 instance=ExtResource("11_au75x")]
+position = Vector2(4385, -925)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy5" parent="." unique_id=135388214 instance=ExtResource("11_au75x")]
+position = Vector2(6239, -661.00006)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy6" parent="." unique_id=1835210233 instance=ExtResource("11_au75x")]
+position = Vector2(7188, 1772)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy7" parent="." unique_id=2012260783 instance=ExtResource("11_au75x")]
+position = Vector2(7060, 1754)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy8" parent="." unique_id=1429529832 instance=ExtResource("11_au75x")]
+position = Vector2(7255, 1765)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy9" parent="." unique_id=397815166 instance=ExtResource("11_au75x")]
+position = Vector2(6986, 1747)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy10" parent="." unique_id=1505152672 instance=ExtResource("11_au75x")]
+position = Vector2(7181, 1758)
+collision_layer = 2
+collision_mask = 2
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1097517890]
 position = Vector2(4073, 174)
 collision_layer = 16

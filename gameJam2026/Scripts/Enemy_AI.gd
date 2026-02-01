@@ -58,7 +58,7 @@ func _physics_process(delta):
 				collider.take_damage(1)
 				attack_timer = attack_cooldown
 				get_pushed_back()
-		elif collider.name != "Player" and collider.name != "BoxCollision2":
+		elif collider.name != "Player" and collider.name != "BoxCollision2" and collider.name != "Foreground2":
 			direction *= -1
 			ray_cast.target_position *= -1
 			ray_cast_platform.target_position.x *= -1
