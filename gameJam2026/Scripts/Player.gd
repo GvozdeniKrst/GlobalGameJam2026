@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const MAXSPEED := 500
+const MAXSPEED := 700
 const ACCELERATION = 2000
 const GRAVITY := 45
 const JUMPFORCE := -1250
