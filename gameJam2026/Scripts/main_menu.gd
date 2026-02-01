@@ -18,6 +18,7 @@ func _on_start_button_pressed() -> void:
 
 func _on_credit_button_pressed() -> void:
 	print("Credits pressed")
+	get_tree().change_scene_to_file("res://Scenes/CreditScreen.tscn")
 
 func _on_quit_button_pressed() -> void:
 	print("Quit pressed")

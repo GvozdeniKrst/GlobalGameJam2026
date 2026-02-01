@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dvws2gih34hwp"]
+
+[ext_resource type="Script" uid="uid://dbux28ypqwmga" path="res://Scripts/credit_screen.gd" id="1_pw6ne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60f6p"]
+bg_color = Color(0.18893051, 0.18995963, 0.21568799, 1)
+
+[node name="CreditScreen" type="Control" unique_id=1080866182]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pw6ne")
+
+[node name="Panel" type="Panel" parent="." unique_id=702702258]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="Panel" unique_id=309833568]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "STACY - CHARACTER ART, ANIMATIONS
+HARIS - BACKGROUND ART, LEVEL DESIGN, FLOATER
+ALLEN - ENEMY AI, ADDITIONAL PROGRAMMING
+DAMJAN - PLAYER SCRIPT, ADDITIONAL PROGRAMMING
+ADAM - LEVEL DESIGN, ADDITIONAL PROGRAMMING
+STEFAN - BACKGROUND ART, UI, ADDITIONAL 
+PROGRAMMING
+EZRA - AUDIO DESIGN, MUSIC"
+
+[node name="Button" type="Button" parent="Panel" unique_id=1025699099]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.5
+offset_top = -148.0
+offset_right = 109.5
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_60f6p")
+text = "RETURN"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_return_button_pressed"]
