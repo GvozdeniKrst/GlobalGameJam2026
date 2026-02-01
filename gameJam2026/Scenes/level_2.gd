@@ -9,4 +9,8 @@ func _on_red_mask_body_entered(body):
 
 
 func _on_door_to_level_3_body_entered(body): 
+	AudioController.stop_step()
+	AudioController.stop_ambiance()
+	AudioController.stop_music()
+	AudioController.play_pass()
 	get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
