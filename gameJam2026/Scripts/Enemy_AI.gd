@@ -44,6 +44,7 @@ func _physics_process(delta):
 		var collider = ray_cast.get_collider()
 		if collider.name == "Player" and attack_timer <= 0 and get_parent().get_node("Player").hiding == false:
 			if !chasing_player:
+				AudioController.play_alert()
 				notice_player = true;
 				
 			chasing_player = true;

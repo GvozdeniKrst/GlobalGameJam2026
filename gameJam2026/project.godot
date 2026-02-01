@@ -15,6 +15,10 @@ run/main_scene="uid://duh5di7tpih1c"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioController="*uid://cl08c74b1y7k8"
+
 [display]
 
 window/size/viewport_width=1280
@@ -24,6 +28,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="GameJam2026"
+
+[editor]
+
+version_control/autoload_on_startup=true
 
 [input]
 
