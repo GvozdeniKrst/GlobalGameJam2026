@@ -9,6 +9,7 @@ var current_state
 @onready var attack = $Attack
 @onready var dead   = $Dead
 
+
 func _ready():
 	# Set initial state in code
 	var initial_state = idle

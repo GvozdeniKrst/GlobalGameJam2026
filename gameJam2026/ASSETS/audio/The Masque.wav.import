@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d0x0lo308a836"
+path="res://.godot/imported/The Masque.wav-1f6c711a8dc1712faa5d30bfee8e2ea5.sample"
+
+[deps]
+
+source_file="res://ASSETS/audio/The Masque.wav"
+dest_files=["res://.godot/imported/The Masque.wav-1f6c711a8dc1712faa5d30bfee8e2ea5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
