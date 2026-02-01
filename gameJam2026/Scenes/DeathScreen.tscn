@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dcn16066xokjj"]
 
 [ext_resource type="Script" uid="uid://oes1aw2i37va" path="res://Scripts/death_screen.gd" id="1_4pnsc"]
+[ext_resource type="FontFile" uid="uid://ba6312stx0nc7" path="res://ASSETS/Font/Ringlet-VzDB.ttf" id="2_1d6nr"]
 [ext_resource type="Texture2D" uid="uid://bpvt1sdg2mt36" path="res://ASSETS/Images/bad.png" id="2_gb262"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1d6nr"]
@@ -40,8 +41,10 @@ theme_override_colors/default_color = Color(0.8608835, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_1d6nr")
 theme_override_font_sizes/normal_font_size = 92
 text = "YOU DIED"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Panel" unique_id=835380703]
 layout_mode = 1
@@ -56,6 +59,7 @@ offset_right = 75.5
 offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_1d6nr")
 text = "CONTINUE"
 
 [node name="Panel2" type="Panel" parent="." unique_id=1366030013]

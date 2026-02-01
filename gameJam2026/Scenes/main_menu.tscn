@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jqkxaymq7kge" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://c7wypr85oo07h" path="res://ASSETS/Images/BGs/temp_bg2.png" id="2_48xlc"]
+[ext_resource type="FontFile" uid="uid://ba6312stx0nc7" path="res://ASSETS/Font/Ringlet-VzDB.ttf" id="3_1ehe0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78xwo"]
 texture = ExtResource("2_48xlc")
@@ -96,6 +97,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_1ehe0")
 theme_override_font_sizes/font_size = 53
 theme_override_styles/normal = SubResource("StyleBoxFlat_78xwo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
@@ -106,6 +108,7 @@ text = "Start"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1ehe0")
 theme_override_font_sizes/font_size = 53
 theme_override_styles/normal = SubResource("StyleBoxFlat_78xwo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ce3w2")
@@ -116,6 +119,7 @@ text = "Credits"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1ehe0")
 theme_override_font_sizes/font_size = 53
 theme_override_styles/normal = SubResource("StyleBoxFlat_78xwo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_opfnp")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c0qt1ctcjglvo" path="res://Scripts/end_screen.gd" id="1_gcms0"]
 [ext_resource type="Texture2D" uid="uid://d3mb0b7ibqlmv" path="res://ASSETS/Images/good.png" id="2_2ohhu"]
+[ext_resource type="FontFile" uid="uid://ba6312stx0nc7" path="res://ASSETS/Font/Ringlet-VzDB.ttf" id="2_jrx8a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrx8a"]
 texture = ExtResource("2_2ohhu")
@@ -36,8 +37,10 @@ offset_right = 290.5
 offset_bottom = 96.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_jrx8a")
 theme_override_font_sizes/normal_font_size = 59
-text = "Thanks for playing c:"
+text = "Thanks for playing"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Panel" unique_id=2040050581]
 layout_mode = 1
@@ -52,6 +55,7 @@ offset_right = 102.5
 offset_bottom = -208.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_jrx8a")
 theme_override_font_sizes/font_size = 42
 text = "Continue"
 
