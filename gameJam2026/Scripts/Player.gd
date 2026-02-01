@@ -12,9 +12,17 @@ var current_hp := MAXHP
 @onready var state_machine = $StateMachine
 @onready var sprite = $Sprite
 
+func handle_platform_fallthrough():
+	if Input.is_action_pressed("below"):
+		set_collision_mask_value(5, false)
+		print(get_collision_mask_value(5))
+	else:
+		set_collision_mask_value(5, true)
+
 func _physics_process(delta):
 	velocity.y += GRAVITY
 	state_machine.physics_update(delta)
+	handle_platform_fallthrough()
 	move_and_slide()
 
 func _unhandled_input(event):
