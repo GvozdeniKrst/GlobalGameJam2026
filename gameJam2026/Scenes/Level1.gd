@@ -6,6 +6,7 @@ func _on_door_to_level_2_body_entered(body):
 	AudioController.stop_music()
 	AudioController.stop_ambiance()
 	get_tree().change_scene_to_file("res://Scenes/level_transition.tscn")
+	AudioController.play_pass()
 	
 
 
