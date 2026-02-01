@@ -29,7 +29,8 @@ func physics_update(delta):
 		)
 
 		if player.is_on_floor():
-			if dir == 0:
-				state_machine.change_state(state_machine.idle)
+			if dir == 0 and player.velocity.y < -0.05:
+				state_machine.change_state(state_machine.jump)
 			else:
 				state_machine.change_state(state_machine.walk)
+		

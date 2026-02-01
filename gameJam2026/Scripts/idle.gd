@@ -4,8 +4,8 @@ var sprite: AnimatedSprite2D
 
 func enter():
 	if player:
-		if not player.is_on_floor():
-			return
+		#if not player.is_on_floor():
+			#return
 		
 		if not sprite and player.has_node("Sprite"):
 			sprite = player.get_node("Sprite") as AnimatedSprite2D
@@ -51,5 +51,5 @@ func physics_update(delta):
 		)
 		
 		# Leave idle if player falls off a ledge
-		if not player.is_on_floor():
-			state_machine.change_state(state_machine.get_node("Jump"))
+		#if not player.is_on_floor():
+			#state_machine.change_state(state_machine.get_node("Jump"))

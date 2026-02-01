@@ -17,7 +17,7 @@ func physics_update(delta):
 	if player:
 		var dir := Input.get_axis("left", "right")
 
-		if dir == 0:
+		if dir == 0 and player.is_on_floor():
 			state_machine.change_state(state_machine.idle)
 			return
 
@@ -30,7 +30,7 @@ func physics_update(delta):
 			player.ACCELERATION * delta
 		)
 
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") and player.is_on_floor():
 			state_machine.change_state(state_machine.jump)
 
 		if Input.is_action_just_pressed("attack"):
