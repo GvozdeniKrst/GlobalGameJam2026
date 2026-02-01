@@ -256,7 +256,7 @@ texture = ExtResource("6_t3or0")
 hframes = 6
 
 [node name="Timer" type="Timer" parent="Player" unique_id=1914867610]
-wait_time = 0.35
+wait_time = 0.6
 
 [node name="GoldMask" type="Area2D" parent="." unique_id=1603330674]
 position = Vector2(2862, 171)
