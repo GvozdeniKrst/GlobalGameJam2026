@@ -70,3 +70,7 @@ shape = SubResource("RectangleShape2D_mig5a")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1813266843]
 target_position = Vector2(50, 0)
+
+[node name="PlatformFind" type="RayCast2D" parent="." unique_id=753965825]
+target_position = Vector2(22.63158, 36.315792)
+collision_mask = 17
