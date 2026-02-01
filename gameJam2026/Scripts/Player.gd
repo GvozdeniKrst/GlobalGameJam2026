@@ -46,6 +46,9 @@ func take_damage(amount: int):
 		portrait_sprite.frame = 2
 	else:
 		portrait_sprite.frame = 5
+		
+		  # Trigger hurt state
+	state_machine.change_state($StateMachine/Hurt)
 	
 	timer_node.start()
 	if current_hp <= 0:

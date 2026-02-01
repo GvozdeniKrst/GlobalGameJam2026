@@ -12,8 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://1mekw4askfj8" path="res://ASSETS/player/crouch_3.png" id="4_q6x5r"]
 [ext_resource type="Texture2D" uid="uid://c76p7a7j02jdr" path="res://ASSETS/player/walk_2.png" id="5_5slg2"]
 [ext_resource type="Texture2D" uid="uid://i3l75l72y0kx" path="res://ASSETS/player/walk_3.png" id="6_cbmiu"]
+[ext_resource type="Texture2D" uid="uid://cba75th8e5b64" path="res://ASSETS/player/hurt_1.png" id="7_4heda"]
 [ext_resource type="Texture2D" uid="uid://dtkttyddohcbg" path="res://ASSETS/player/jump_start_and_land-1.png" id="7_22qw1"]
 [ext_resource type="Texture2D" uid="uid://bpisk3q2mgbxm" path="res://ASSETS/player/walk_4.png" id="7_w3rah"]
+[ext_resource type="Texture2D" uid="uid://dc0btgtgptayt" path="res://ASSETS/player/hurt_2.png" id="8_bwhr1"]
 [ext_resource type="Texture2D" uid="uid://cv8k3untiyigs" path="res://ASSETS/player/launch-1.png" id="8_mevwr"]
 [ext_resource type="Texture2D" uid="uid://y4bmiwdaufpj" path="res://ASSETS/player/fall-1.png" id="9_iga2k"]
 [ext_resource type="Script" uid="uid://bcmj7kqoprrou" path="res://Scripts/idle.gd" id="14_mevwr"]
@@ -23,6 +25,7 @@
 [ext_resource type="Script" uid="uid://bc8sirdklhopv" path="res://Scripts/jump.gd" id="19_0qaj4"]
 [ext_resource type="Script" uid="uid://ctiefqo4hhg2q" path="res://Scripts/dead.gd" id="20_h3pa0"]
 [ext_resource type="Script" uid="uid://huvrvxlxvg2v" path="res://Scripts/attack.gd" id="20_ibds6"]
+[ext_resource type="Script" uid="uid://c0qbeo72l236v" path="res://Scripts/hurt.gd" id="26_bwhr1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65n15"]
 animations = [{
@@ -54,6 +57,17 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4heda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bwhr1")
+}],
+"loop": false,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -151,9 +165,8 @@ script = ExtResource("1_5mj4t")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1183139674]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_65n15")
-animation = &"attack"
-frame = 1
-frame_progress = 1.0
+animation = &"hurt"
+frame_progress = 0.24320786
 
 [node name="Area2D" type="Area2D" parent="Sprite" unique_id=230456768]
 
@@ -188,6 +201,9 @@ script = ExtResource("20_h3pa0")
 [node name="Walk" type="Node2D" parent="StateMachine" unique_id=112730320]
 script = ExtResource("17_8an5f")
 
+[node name="Hurt" type="Node2D" parent="StateMachine" unique_id=1006648547]
+script = ExtResource("26_bwhr1")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2103510641]
 position = Vector2(-7.5, 4.5625)
 shape = SubResource("RectangleShape2D_eovys")
@@ -196,3 +212,4 @@ shape = SubResource("RectangleShape2D_eovys")
 libraries/ = SubResource("AnimationLibrary_bwhr1")
 
 [connection signal="animation_finished" from="Sprite" to="StateMachine/Attack" method="_on_sprite_animation_finished"]
+[connection signal="animation_finished" from="Sprite" to="StateMachine/Hurt" method="_on_sprite_animation_finished"]

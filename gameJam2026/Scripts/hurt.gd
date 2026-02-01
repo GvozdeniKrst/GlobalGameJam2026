@@ -1,22 +1,17 @@
 extends State
 
 var sprite: AnimatedSprite2D
-var animation: AnimationPlayer
-var hitbox: CollisionShape2D
 
 func enter():
 	if player:
 		if not sprite and player.has_node("Sprite"):
 			sprite = player.get_node("Sprite") as AnimatedSprite2D
-			animation = player.get_node("AnimationPlayer") as AnimationPlayer
-			hitbox = player.get_node("Sprite/Area2D/AttackHitbox") as CollisionShape2D
 		if sprite:
-			sprite.play("attack")
-			animation.play("attack")
+			sprite.play("hurt")
 		else:
-			push_error("Attack state: sprite not found on player!")
+			push_error("Hurt state: sprite not found on player!")
 	else:
-		push_error("Attack state: player is null!")
+		push_error("Hurt state: player is null!")
 
 func physics_update(delta):
 	if player:
@@ -25,9 +20,9 @@ func physics_update(delta):
 			0,
 			player.ATTACKFRICTION * delta
 		)
-
+		
 func _on_sprite_animation_finished():
-	if sprite and sprite.animation == "attack":
+	if sprite and sprite.animation == "hurt":
 		if player.is_on_floor():
 			state_machine.change_state(state_machine.idle)
 		else:
