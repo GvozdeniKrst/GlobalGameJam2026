@@ -39,8 +39,11 @@ func physics_update(delta):
 		if Input.is_action_just_pressed("jump") and player.is_on_floor():
 			state_machine.change_state(state_machine.jump)
 
+		
 		if Input.is_action_just_pressed("attack"):
-			state_machine.change_state(state_machine.attack)
+			if player.hasMask:
+				state_machine.change_state(state_machine.attack)
+
 
 		if Input.is_action_pressed("below"):
 			state_machine.change_state(state_machine.crouch)

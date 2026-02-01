@@ -22,4 +22,5 @@ func physics_update(_delta):
 			state_machine.change_state(state_machine.idle)
 
 		if Input.is_action_just_pressed("attack"):
-			state_machine.change_state(state_machine.attack)
+			if player.hasMask:
+				state_machine.change_state(state_machine.attack)
