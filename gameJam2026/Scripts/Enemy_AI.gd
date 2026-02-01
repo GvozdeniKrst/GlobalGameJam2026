@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var direction = 260
-var attack_cooldown = 3.0
+var attack_cooldown = 2.0
 var attack_timer = 0
 var push_timer = 2
 var pushed = false
@@ -66,7 +66,10 @@ func _physics_process(delta):
 			
 		if !turning_around:
 			turning_around = true
-			turn_around_timer = 90
+			if chasing_player:
+				turn_around_timer = 45
+			else:
+				turn_around_timer = 90
 		
 		pass
 	if push_timer <= 0:
