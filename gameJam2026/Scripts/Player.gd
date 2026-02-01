@@ -77,7 +77,6 @@ func _on_level_1_child_exiting_tree(node: Node) -> void:
 		portrait_sprite.frame = 3
 	
 
-
 func _on_box_collision_body_entered(body: Node2D) -> void:
 	in_box_hitbox = true
 	
@@ -86,7 +85,8 @@ func _handle_hiding():
 		hiding = true
 	else:
 		hiding = false
-
+		
+	print(hiding)
 
 func _on_box_collision_body_exited(body: Node2D) -> void:
-		in_box_hitbox = false
+	in_box_hitbox = false

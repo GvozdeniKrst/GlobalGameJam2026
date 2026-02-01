@@ -745,8 +745,31 @@ position = Vector2(84, -18)
 shape = SubResource("RectangleShape2D_ycmr1")
 
 [node name="BoxCollision" type="Area2D" parent="." unique_id=460044294]
+position = Vector2(1852, 192)
+scale = Vector2(6.462327, 6.864812)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxCollision" unique_id=1970562953]
+shape = SubResource("RectangleShape2D_au75x")
+
+[node name="BoxCollision2" type="Area2D" parent="." unique_id=997486358]
+position = Vector2(9276, 189)
+scale = Vector2(6.462327, 6.864812)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxCollision2" unique_id=1618204358]
+shape = SubResource("RectangleShape2D_au75x")
+
+[node name="BoxCollision3" type="Area2D" parent="." unique_id=956563787]
+position = Vector2(10430.001, 186)
+scale = Vector2(6.462327, 6.864812)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxCollision3" unique_id=1723234665]
+shape = SubResource("RectangleShape2D_au75x")
+
+[node name="BoxCollision4" type="Area2D" parent="." unique_id=1131480005]
+position = Vector2(10555.001, 188.99998)
+scale = Vector2(6.462327, 6.864812)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxCollision4" unique_id=739390016]
 shape = SubResource("RectangleShape2D_au75x")
 
 [connection signal="child_exiting_tree" from="." to="Player" method="_on_level_1_child_exiting_tree"]
@@ -754,3 +777,9 @@ shape = SubResource("RectangleShape2D_au75x")
 [connection signal="body_entered" from="GoldMask" to="." method="_on_door_to_level_3_body_entered"]
 [connection signal="body_entered" from="BoxCollision" to="Player" method="_on_box_collision_body_entered"]
 [connection signal="body_exited" from="BoxCollision" to="Player" method="_on_box_collision_body_exited"]
+[connection signal="body_entered" from="BoxCollision2" to="Player" method="_on_box_collision_body_entered"]
+[connection signal="body_exited" from="BoxCollision2" to="Player" method="_on_box_collision_body_exited"]
+[connection signal="body_entered" from="BoxCollision3" to="Player" method="_on_box_collision_body_entered"]
+[connection signal="body_exited" from="BoxCollision3" to="Player" method="_on_box_collision_body_exited"]
+[connection signal="body_entered" from="BoxCollision4" to="Player" method="_on_box_collision_body_entered"]
+[connection signal="body_exited" from="BoxCollision4" to="Player" method="_on_box_collision_body_exited"]

@@ -58,7 +58,7 @@ func _physics_process(delta):
 				collider.take_damage(1)
 				attack_timer = attack_cooldown
 				get_pushed_back()
-		elif collider.name != "Player":
+		elif collider.name != "Player" and collider.name != "BoxCollision2":
 			direction *= -1
 			ray_cast.target_position *= -1
 			ray_cast_platform.target_position.x *= -1
@@ -121,9 +121,6 @@ func _physics_process(delta):
 	
 	handle_platform_fallthrough()
 	move_and_slide()
-	print(turning_around)
-	print(turn_around_timer)
-	print(ray_cast_platform.is_colliding())
 
 func get_pushed_back():
 	velocity.x = 0
