@@ -7,5 +7,5 @@ func _on_red_mask_body_entered(body):
 	
 
 
-func _on_gold_mask_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func _on_door_to_level_3_body_entered(body): 
+	get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
