@@ -42,9 +42,13 @@ func _physics_process(delta):
 		push_timer = 2
 		pushed = false
 		my_sprite.self_modulate =  Color(1, 1, 1)
+	handle_platform_fallthrough()
 	move_and_slide()
 
 func get_pushed_back():
 	velocity.x = 0
 	$RayCast2D.enabled = false
 	pushed = true
+
+func handle_platform_fallthrough():
+	set_collision_mask_value(5, true)
