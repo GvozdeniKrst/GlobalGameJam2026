@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bnpd26t0tj4pq" path="res://ASSETS/enemy/enemy_walk_2.png" id="7_tdpgy"]
 [ext_resource type="Texture2D" uid="uid://dnksfl0jhf7le" path="res://ASSETS/enemy/enemy_walk_3.png" id="8_mxnac"]
 [ext_resource type="Texture2D" uid="uid://dugr14r5y25xr" path="res://ASSETS/enemy/enemy_walk_4.png" id="9_hi0ka"]
+[ext_resource type="Texture2D" uid="uid://bki3fylr7owqb" path="res://ASSETS/Images/the_mark_that_exclaims.png" id="10_r4647"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_15fs6"]
 animations = [{
@@ -70,7 +71,13 @@ shape = SubResource("RectangleShape2D_mig5a")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1813266843]
 target_position = Vector2(50, 0)
+collide_with_areas = true
 
 [node name="PlatformFind" type="RayCast2D" parent="." unique_id=753965825]
 target_position = Vector2(22.63158, 36.315792)
 collision_mask = 17
+
+[node name="ExclaimationMark" type="Sprite2D" parent="." unique_id=35229180]
+position = Vector2(-0.78948975, -45.000015)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_r4647")
