@@ -518,7 +518,8 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSet" id="TileSet_au75x"]
 tile_size = Vector2i(128, 128)
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 physics_layer_1/collision_layer = 16
 physics_layer_1/collision_mask = 0
 navigation_layer_0/layers = 1
@@ -703,9 +704,13 @@ gravity = Vector2(100, -100)
 
 [node name="Enemy" parent="." unique_id=276410907 instance=ExtResource("11_au75x")]
 position = Vector2(4380.0005, 129)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Enemy2" parent="." unique_id=1580176149 instance=ExtResource("11_au75x")]
 position = Vector2(9439.001, 127.00001)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1097517890]
 position = Vector2(4073, 174)
