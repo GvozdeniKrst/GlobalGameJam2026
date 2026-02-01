@@ -15,9 +15,11 @@ var HP = 1
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var my_sprite = $Sprite2D
 @onready var ray_cast_platform = $PlatformFind
+@onready var exclamation_mark = $ExclaimationMark
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$RayCast2D.enabled = true
+	exclamation_mark.visible = false
 	pass # Replace with function body.
 
 
@@ -77,10 +79,13 @@ func _physics_process(delta):
 	if notice_player:
 		notice_player_timer -= 1
 		direction = 0
+		exclamation_mark.visible = true
+		
 	
 	if notice_player_timer <= 0:
 		notice_player = false
-		chasing_player = true;
+		chasing_player = true
+		exclamation_mark.visible = false
 		
 	# Enemy chases player faster than walking speed
 	if chasing_player and !notice_player:
