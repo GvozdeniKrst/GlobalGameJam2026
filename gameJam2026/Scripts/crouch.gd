@@ -5,8 +5,8 @@ var sprite: AnimatedSprite2D
 func enter():
 	if player:
 		player.velocity.x = 0
-		if not sprite and player.has_node("sprite"):
-			sprite = player.get_node("sprite") as AnimatedSprite2D
+		if not sprite and player.has_node("Sprite"):
+			sprite = player.get_node("Sprite") as AnimatedSprite2D
 		if sprite:
 			sprite.play("crouch")
 		else:
