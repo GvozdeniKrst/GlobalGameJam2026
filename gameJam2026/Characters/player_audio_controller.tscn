@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cl08c74b1y7k8"]
+
+[ext_resource type="Script" uid="uid://dl714ej0p62nh" path="res://Scripts/audiomanager.gd" id="1_ys1ix"]
+[ext_resource type="AudioStream" uid="uid://caof4xtao15xq" path="res://ASSETS/audio/step.wav" id="2_q640v"]
+[ext_resource type="AudioStream" uid="uid://c6xaxikripjxy" path="res://ASSETS/audio/land.wav" id="3_1gt0g"]
+[ext_resource type="AudioStream" uid="uid://e3cbxoxjqiyi" path="res://ASSETS/audio/jump.wav" id="3_o2vc3"]
+[ext_resource type="AudioStream" uid="uid://bu1gd441ew52k" path="res://ASSETS/audio/knife_stab.wav" id="4_1gt0g"]
+[ext_resource type="AudioStream" uid="uid://fl5rqmpfpxmi" path="res://ASSETS/audio/pickup.wav" id="5_qk654"]
+[ext_resource type="AudioStream" uid="uid://vmoiik1qlv6r" path="res://ASSETS/audio/enemy_alert.wav" id="5_wffgu"]
+[ext_resource type="AudioStream" uid="uid://wtgxg4xgw04y" path="res://ASSETS/audio/Impetus.wav" id="6_o2vc3"]
+[ext_resource type="AudioStream" uid="uid://d0x0lo308a836" path="res://ASSETS/audio/The Masque.wav" id="9_cpn0n"]
+[ext_resource type="AudioStream" uid="uid://bqk0jo74tnkuh" path="res://ASSETS/audio/background_ambience.wav" id="10_fv6bf"]
+
+[node name="AudioController" type="Node2D" unique_id=1011058327]
+script = ExtResource("1_ys1ix")
+
+[node name="walk" type="AudioStreamPlayer" parent="." unique_id=1131767572]
+stream = ExtResource("2_q640v")
+volume_db = -0.388
+
+[node name="jump" type="AudioStreamPlayer" parent="." unique_id=373354612]
+stream = ExtResource("3_o2vc3")
+
+[node name="land" type="AudioStreamPlayer" parent="." unique_id=1715380953]
+stream = ExtResource("3_1gt0g")
+
+[node name="stab" type="AudioStreamPlayer" parent="." unique_id=1828357574]
+stream = ExtResource("4_1gt0g")
+
+[node name="alert" type="AudioStreamPlayer" parent="." unique_id=629880694]
+stream = ExtResource("5_wffgu")
+volume_db = -1.94
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1256077504]
+stream = ExtResource("6_o2vc3")
+
+[node name="pickup" type="AudioStreamPlayer" parent="." unique_id=254749028]
+stream = ExtResource("5_qk654")
+
+[node name="music2" type="AudioStreamPlayer" parent="." unique_id=1643900551]
+stream = ExtResource("9_cpn0n")
+
+[node name="ambiance" type="AudioStreamPlayer" parent="." unique_id=1680828187]
+stream = ExtResource("10_fv6bf")
+volume_db = -4.782

@@ -8,6 +8,7 @@ func enter():
 		if not sprite and player.has_node("Sprite"):
 			sprite = player.get_node("Sprite") as AnimatedSprite2D
 		if sprite:
+			AudioController.play_jump()
 			sprite.play("jump")
 		else:
 			push_error("Jump state: sprite not found!")
@@ -29,8 +30,11 @@ func physics_update(delta):
 		)
 
 		if player.is_on_floor():
-			if dir == 0 and player.velocity.y < -0.05:
-				state_machine.change_state(state_machine.jump)
+			if dir == 0 and player.velocity.y < -0.5:
+				pass
 			else:
+				AudioController.play_land()
 				state_machine.change_state(state_machine.walk)
+		
+				
 		

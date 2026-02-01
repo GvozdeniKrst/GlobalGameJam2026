@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://jqkxaymq7kge" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://bls36pbc2jtfv" path="res://ASSETS/Images/BGs/temp_bg.png" id="2_1ehe0"]
-[ext_resource type="AudioStream" uid="uid://d0x0lo308a836" path="res://ASSETS/audio/The Masque.wav" id="3_1ehe0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78xwo"]
 texture = ExtResource("2_1ehe0")
@@ -122,11 +121,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_78xwo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_opfnp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cp0ys")
 text = "Quit"
-
-[node name="music" type="AudioStreamPlayer" parent="." unique_id=1151975521]
-stream = ExtResource("3_1ehe0")
-volume_db = -5.493
-autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
