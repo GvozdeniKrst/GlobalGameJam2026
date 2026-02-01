@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://uhvmrs6golf"]
 
 [ext_resource type="Script" uid="uid://c0qt1ctcjglvo" path="res://Scripts/end_screen.gd" id="1_gcms0"]
+[ext_resource type="Texture2D" uid="uid://d3mb0b7ibqlmv" path="res://ASSETS/Images/good.png" id="2_2ohhu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrx8a"]
+texture = ExtResource("2_2ohhu")
 
 [node name="EndScreen" type="Control" unique_id=1402257526]
 layout_mode = 3
@@ -43,12 +47,20 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -102.5
-offset_top = -380.0
+offset_top = -330.0
 offset_right = 102.5
-offset_bottom = -258.0
+offset_bottom = -208.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 text = "Continue"
+
+[node name="Panel2" type="Panel" parent="." unique_id=1372599219]
+layout_mode = 0
+offset_left = -91.0
+offset_top = 2.0
+offset_right = 517.0
+offset_bottom = 746.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jrx8a")
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://dcn16066xokjj"]
 
 [ext_resource type="Script" uid="uid://oes1aw2i37va" path="res://Scripts/death_screen.gd" id="1_4pnsc"]
+[ext_resource type="Texture2D" uid="uid://bpvt1sdg2mt36" path="res://ASSETS/Images/bad.png" id="2_gb262"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1d6nr"]
+texture = ExtResource("2_gb262")
 
 [node name="DeathScreen" type="Control" unique_id=2089733959]
 layout_mode = 3
@@ -53,5 +57,13 @@ offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "CONTINUE"
+
+[node name="Panel2" type="Panel" parent="." unique_id=1366030013]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 117.0
+offset_right = 1342.0
+offset_bottom = 724.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1d6nr")
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_continue_button_pressed"]
