@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvws2gih34hwp"]
 
 [ext_resource type="Script" uid="uid://dbux28ypqwmga" path="res://Scripts/credit_screen.gd" id="1_pw6ne"]
+[ext_resource type="Texture2D" uid="uid://dc8rtnudipfsm" path="res://ASSETS/Images/BGs/masks.png" id="2_07q3w"]
 [ext_resource type="FontFile" uid="uid://ba6312stx0nc7" path="res://ASSETS/Font/Ringlet-VzDB.ttf" id="2_60f6p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60f6p"]
@@ -22,6 +23,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=1238461830]
+position = Vector2(641.50006, 300.625)
+scale = Vector2(0.66510415, 0.5548611)
+texture = ExtResource("2_07q3w")
 
 [node name="TextEdit" type="TextEdit" parent="Panel" unique_id=309833568]
 layout_mode = 1
