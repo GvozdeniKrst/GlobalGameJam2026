@@ -5,6 +5,7 @@ var attack_timer = 0
 var push_timer = 2
 var pushed = false
 @onready var ray_cast: RayCast2D = $RayCast2D
+@onready var my_sprite = $Sprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$RayCast2D.enabled = true
@@ -16,6 +17,7 @@ func _physics_process(delta):
 	attack_timer -= delta
 	if pushed == true:
 		push_timer -= delta
+		my_sprite.self_modulate = Color(1,0,0)
 	velocity.x = direction
 	velocity.y += 45
 	if ray_cast.is_colliding():
@@ -34,6 +36,7 @@ func _physics_process(delta):
 		$RayCast2D.enabled = true
 		push_timer = 2
 		pushed = false
+		my_sprite.self_modulate =  Color(1, 1, 1)
 	move_and_slide()
 
 func get_pushed_back():
