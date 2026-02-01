@@ -8,6 +8,7 @@ const ATTACKFRICTION := 1200
 
 const MAXHP := 2
 var current_hp := MAXHP
+var hasMask := false
 
 @onready var state_machine = $StateMachine
 @onready var sprite = $Sprite
@@ -21,7 +22,6 @@ func _ready() -> void:
 func handle_platform_fallthrough():
 	if Input.is_action_pressed("below"):
 		set_collision_mask_value(5, false)
-		print(get_collision_mask_value(5))
 	else:
 		set_collision_mask_value(5, true)
 		
@@ -30,6 +30,7 @@ func _physics_process(delta):
 	state_machine.physics_update(delta)
 	handle_platform_fallthrough()
 	move_and_slide()
+	print(hasMask)
 
 func _unhandled_input(event):
 	state_machine.handle_input(event)
@@ -50,3 +51,9 @@ func take_damage(amount: int):
 
 func _on_timer_timeout() -> void:
 	portrait_sprite.frame = 1 # or 4 if wearing mask
+
+
+func _on_level_1_child_exiting_tree(node: Node) -> void:
+	if node.name == "RedMask":
+		hasMask = true;
+	
