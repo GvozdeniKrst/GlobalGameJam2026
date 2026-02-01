@@ -50,6 +50,6 @@ func physics_update(delta):
 			player.ACCELERATION * delta
 		)
 		
-		# Leave idle if player falls off a ledge
-		#if not player.is_on_floor():
-			#state_machine.change_state(state_machine.get_node("Jump"))
+func update_facing(dir: int):
+	$AnimatedSprite2D.flip_h = (dir == -1)
+	$Hitbox.position.x = abs($Hitbox.position.x) * dir

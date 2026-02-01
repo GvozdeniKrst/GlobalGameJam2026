@@ -1,11 +1,15 @@
 extends State
 
 var sprite: AnimatedSprite2D
+var area: Area2D
+
 
 func enter():
 	if player:
 		if not sprite and player.has_node("Sprite"):
 			sprite = player.get_node("Sprite") as AnimatedSprite2D
+			area = player.get_node("Sprite/Area2D") as Area2D
+
 		if sprite:
 			sprite.play("walk")
 		else:
@@ -22,7 +26,10 @@ func physics_update(delta):
 			return
 
 		if sprite:
-			sprite.flip_h = dir < 0
+			if dir != 0:
+				sprite.flip_h = dir < 0
+				area.scale.x = -1 if dir < 0 else 1
+
 
 		player.velocity.x = move_toward(
 			player.velocity.x,

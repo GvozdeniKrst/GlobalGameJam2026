@@ -1,13 +1,16 @@
 extends State
 
 var sprite: AnimatedSprite2D
+var animation: AnimationPlayer
 
 func enter():
 	if player:
 		if not sprite and player.has_node("Sprite"):
 			sprite = player.get_node("Sprite") as AnimatedSprite2D
+			animation = player.get_node("AnimationPlayer") as AnimationPlayer
 		if sprite:
 			sprite.play("attack")
+			animation.play("attack")
 		else:
 			push_error("Attack state: sprite not found on player!")
 	else:
