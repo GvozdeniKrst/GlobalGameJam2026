@@ -52,6 +52,9 @@ func take_damage(amount: int):
 	timer_node.start()
 	if current_hp <= 0:
 		state_machine.change_state($StateMachine/Dead)
+		await get_tree().create_timer(1.0).timeout
+		var current_scene = get_tree().current_scene
+		get_tree().change_scene_to_file("res://Scenes/DeathScreen.tscn")
 		
 
 func wear_mask():
