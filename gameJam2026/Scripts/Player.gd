@@ -66,4 +66,5 @@ func _on_timer_timeout() -> void:
 func _on_level_1_child_exiting_tree(node: Node) -> void:
 	if node.name == "RedMask":
 		hasMask = true;
+		portrait_sprite.frame = 3
 	
