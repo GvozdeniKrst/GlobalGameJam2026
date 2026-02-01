@@ -660,7 +660,7 @@ hframes = 6
 wait_time = 0.6
 
 [node name="Boxes" type="TileMapLayer" parent="." unique_id=641892792]
-tile_map_data = PackedByteArray("AABIAAEAAAA9AAAAAAAOAAEAAAA9AAAAAABRAAAAAAA9AAAAAABRAAEAAAA9AAAAAABSAAEAAAA9AAAAAAA=")
+tile_map_data = PackedByteArray("AABIAAEAAAA9AAAAAAAOAAEAAAA9AAAAAABRAAAAAAA9AAAAAABRAAEAAAA9AAAAAABSAAEAAAA9AAAAAAAkAAEAAAA9AAAAAAA=")
 tile_set = SubResource("TileSet_1je60")
 
 [node name="RedMask" type="Area2D" parent="." unique_id=571504517]
@@ -703,7 +703,7 @@ emission_sphere_radius = 48.74
 gravity = Vector2(100, -100)
 
 [node name="Enemy" parent="." unique_id=276410907 instance=ExtResource("11_au75x")]
-position = Vector2(4380.0005, 129)
+position = Vector2(6382, 123)
 collision_layer = 2
 collision_mask = 2
 
@@ -798,6 +798,13 @@ scale = Vector2(6.462327, 6.864812)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxCollision2" unique_id=1618204358]
 shape = SubResource("RectangleShape2D_au75x")
 
+[node name="BoxCollision5" type="Area2D" parent="." unique_id=1444062413]
+position = Vector2(4671, 189)
+scale = Vector2(6.462327, 6.864812)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxCollision5" unique_id=315650964]
+shape = SubResource("RectangleShape2D_au75x")
+
 [node name="BoxCollision3" type="Area2D" parent="." unique_id=956563787]
 position = Vector2(10430.001, 186)
 scale = Vector2(6.462327, 6.864812)
@@ -819,6 +826,8 @@ shape = SubResource("RectangleShape2D_au75x")
 [connection signal="body_exited" from="BoxCollision" to="Player" method="_on_box_collision_body_exited"]
 [connection signal="body_entered" from="BoxCollision2" to="Player" method="_on_box_collision_body_entered"]
 [connection signal="body_exited" from="BoxCollision2" to="Player" method="_on_box_collision_body_exited"]
+[connection signal="body_entered" from="BoxCollision5" to="Player" method="_on_box_collision_body_entered"]
+[connection signal="body_exited" from="BoxCollision5" to="Player" method="_on_box_collision_body_exited"]
 [connection signal="body_entered" from="BoxCollision3" to="Player" method="_on_box_collision_body_entered"]
 [connection signal="body_exited" from="BoxCollision3" to="Player" method="_on_box_collision_body_exited"]
 [connection signal="body_entered" from="BoxCollision4" to="Player" method="_on_box_collision_body_entered"]
