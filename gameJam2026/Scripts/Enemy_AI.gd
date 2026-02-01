@@ -14,11 +14,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if(velocity.x != 0):
+		my_sprite.play("Walk")
+	else:
+		my_sprite.play("Idle")
+	my_sprite.flip_h = direction < 0
 	attack_timer -= delta
 	if pushed == true:
 		push_timer -= delta
 		my_sprite.self_modulate = Color(1,0,0)
-	velocity.x = direction
+	else:
+		velocity.x = direction
 	velocity.y += 45
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
@@ -32,7 +38,6 @@ func _physics_process(delta):
 			push_timer = 2
 			pushed = false
 	if push_timer <= 0:
-		direction = 360
 		$RayCast2D.enabled = true
 		push_timer = 2
 		pushed = false
@@ -40,6 +45,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func get_pushed_back():
-	direction = 0
+	velocity.x = 0
 	$RayCast2D.enabled = false
 	pushed = true
