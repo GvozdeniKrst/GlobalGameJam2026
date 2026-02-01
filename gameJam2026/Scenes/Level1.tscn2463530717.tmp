@@ -250,13 +250,9 @@ position = Vector2(1650, -188)
 zoom = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D" unique_id=38580154]
-position = Vector2(-890.5, -399.5)
-scale = Vector2(1.5664063, 1.5664063)
+position = Vector2(-963, -472)
 texture = ExtResource("6_t3or0")
 hframes = 6
-
-[node name="Timer" type="Timer" parent="Player" unique_id=1914867610]
-wait_time = 0.35
 
 [node name="GoldMask" type="Area2D" parent="." unique_id=1603330674]
 position = Vector2(2862, 171)
@@ -288,6 +284,5 @@ offset_bottom = 71.0
 color = Color(1, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="GoldMask" to="." method="_on_door_to_level_2_body_entered"]
 [connection signal="body_entered" from="RedMask" to="." method="_on_red_mask_body_entered"]
