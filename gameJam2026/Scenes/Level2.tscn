@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cpidiqpvta2gu" path="res://Scenes/red_mask.gd" id="7_70df5"]
 [ext_resource type="Texture2D" uid="uid://bgsm03eon6k6n" path="res://ASSETS/Images/red-mask.png" id="8_ejprb"]
 [ext_resource type="Texture2D" uid="uid://c1d350xg1msu0" path="res://ASSETS/Images/gold-mask.png" id="9_au75x"]
+[ext_resource type="PackedScene" uid="uid://b4rw44noc7id2" path="res://Characters/Enemy.tscn" id="11_au75x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5awjf"]
 texture = ExtResource("2_n3cqh")
@@ -387,7 +388,7 @@ texture_region_size = Vector2i(128, 128)
 59:0/0 = 0
 60:0/0 = 0
 61:0/0 = 0
-61:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70df5"]
 texture = ExtResource("1_ms0wi")
@@ -531,13 +532,17 @@ script/source = "extends TileMapLayer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-	var tile"
+	var tile
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62f1r"]
 size = Vector2(90.5, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1je60"]
 size = Vector2(90, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycmr1"]
+size = Vector2(63, 256)
 
 [node name="Level2" type="Node2D" unique_id=1319851060]
 script = ExtResource("1_ejprb")
@@ -564,9 +569,22 @@ position = Vector2(1583, 139)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=72609022]
 zoom = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D" unique_id=1127244977]
-position = Vector2(-890.5, -399.5)
-scale = Vector2(1.5664063, 1.5664063)
+[node name="Control" type="Control" parent="Player/Camera2D" unique_id=1355694067]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Player/Camera2D/Control" unique_id=1242519864]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -27.925
+anchor_top = -14.15
+anchor_right = -27.925
+anchor_bottom = -14.15
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/Control/PanelContainer" unique_id=1127244977]
 texture = ExtResource("6_jriq2")
 hframes = 6
 
@@ -611,6 +629,44 @@ amount = 5
 emission_shape = 1
 emission_sphere_radius = 48.74
 gravity = Vector2(100, -100)
+
+[node name="Enemy" parent="." unique_id=276410907 instance=ExtResource("11_au75x")]
+position = Vector2(4380.0005, 129)
+
+[node name="Enemy2" parent="." unique_id=1580176149 instance=ExtResource("11_au75x")]
+position = Vector2(9439.001, 127.00001)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1097517890]
+position = Vector2(4073, 174)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1111760924]
+position = Vector2(-7.5, -46)
+shape = SubResource("RectangleShape2D_ycmr1")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=2040894900]
+position = Vector2(6754, 174)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=526991682]
+position = Vector2(-7.5, -46)
+shape = SubResource("RectangleShape2D_ycmr1")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=913454693]
+position = Vector2(8742, 177)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=589490273]
+position = Vector2(-7.5, -46)
+shape = SubResource("RectangleShape2D_ycmr1")
+
+[node name="Area2D4" type="Area2D" parent="." unique_id=822651919]
+position = Vector2(10357, 147)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=2094465970]
+position = Vector2(84, -18)
+shape = SubResource("RectangleShape2D_ycmr1")
 
 [connection signal="child_exiting_tree" from="." to="Player" method="_on_level_1_child_exiting_tree"]
 [connection signal="body_entered" from="RedMask" to="." method="_on_red_mask_body_entered"]

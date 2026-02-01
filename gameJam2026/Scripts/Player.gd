@@ -12,7 +12,7 @@ var hasMask := false
 
 @onready var state_machine = $StateMachine
 @onready var sprite = $Sprite
-@onready var portrait_sprite: Sprite2D = $Camera2D/Sprite2D
+@onready var portrait_sprite: Sprite2D = $Camera2D/Control/PanelContainer/Sprite2D
 @onready var timer_node: Timer = $Timer
 @onready var colission_object = $CollisionShape2D
 
