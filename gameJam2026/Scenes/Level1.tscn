@@ -215,7 +215,10 @@ func _process(delta: float):
 	var tile"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slnnj"]
-size = Vector2(44, 41)
+size = Vector2(77.5, 79.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3or0"]
+size = Vector2(76.5, 78)
 
 [node name="Level1" type="Node2D" unique_id=523519200]
 script = ExtResource("1_slnnj")
@@ -245,17 +248,35 @@ position = Vector2(1650, -188)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=36016344]
 zoom = Vector2(0.5, 0.5)
 
-[node name="DoorToLevel2" type="Area2D" parent="." unique_id=1603330674]
+[node name="GoldMask" type="Area2D" parent="." unique_id=1603330674]
 position = Vector2(2862, 171)
 
-[node name="ColorRect" type="ColorRect" parent="DoorToLevel2" unique_id=2137297323]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(1, 0, 0.9019608, 1)
+[node name="ColorRect" type="ColorRect" parent="GoldMask" unique_id=2137297323]
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 62.0
+offset_bottom = 62.0
+color = Color(0.80784315, 0.5686275, 0.007843138, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToLevel2" unique_id=1920922624]
-position = Vector2(20, 19)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoldMask" unique_id=1920922624]
+position = Vector2(21.25, 22.125)
 shape = SubResource("RectangleShape2D_slnnj")
 
-[connection signal="body_entered" from="DoorToLevel2" to="." method="_on_door_to_level_2_body_entered"]
+[node name="RedMask" type="Area2D" parent="." unique_id=1248394452]
+position = Vector2(2486, -590)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedMask" unique_id=204059350]
+position = Vector2(22.75, 30)
+shape = SubResource("RectangleShape2D_t3or0")
+
+[node name="ColorRect" type="ColorRect" parent="RedMask" unique_id=1272503012]
+offset_left = -18.0
+offset_top = -9.0
+offset_right = 62.0
+offset_bottom = 71.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="GoldMask" to="." method="_on_door_to_level_2_body_entered"]
+[connection signal="body_entered" from="RedMask" to="." method="_on_red_mask_body_entered"]
