@@ -17,7 +17,7 @@ var hasMask := false
 @onready var colission_object = $CollisionShape2D
 
 func _ready() -> void:
-	portrait_sprite.frame = 0
+		portrait_sprite.frame = 0
 
 func handle_platform_fallthrough():
 	if Input.is_action_pressed("jump") and Input.is_action_pressed("below"):
@@ -47,8 +47,8 @@ func take_damage(amount: int):
 	else:
 		portrait_sprite.frame = 5
 		
-		  # Trigger hurt state
-	state_machine.change_state($StateMachine/Hurt)
+	if(current_hp != 0):
+		state_machine.change_state($StateMachine/Hurt)
 	
 	timer_node.start()
 	if current_hp <= 0:

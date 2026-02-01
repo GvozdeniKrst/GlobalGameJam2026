@@ -54,7 +54,10 @@ animations = [{
 "name": &"crouch",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bwhr1")
+}],
 "loop": true,
 "name": &"dead",
 "speed": 5.0
@@ -165,8 +168,7 @@ script = ExtResource("1_5mj4t")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1183139674]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_65n15")
-animation = &"hurt"
-frame_progress = 0.24320786
+animation = &"dead"
 
 [node name="Area2D" type="Area2D" parent="Sprite" unique_id=230456768]
 
