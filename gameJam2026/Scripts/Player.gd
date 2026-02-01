@@ -13,6 +13,7 @@ var current_hp := MAXHP
 @onready var sprite = $Sprite
 @onready var portrait_sprite: Sprite2D = $Camera2D/Sprite2D
 @onready var timer_node: Timer = $Timer
+@onready var colission_object = $CollisionShape2D
 
 func _ready() -> void:
 	portrait_sprite.frame = 0
@@ -23,7 +24,7 @@ func handle_platform_fallthrough():
 		print(get_collision_mask_value(5))
 	else:
 		set_collision_mask_value(5, true)
-
+		
 func _physics_process(delta):
 	velocity.y += GRAVITY
 	state_machine.physics_update(delta)
