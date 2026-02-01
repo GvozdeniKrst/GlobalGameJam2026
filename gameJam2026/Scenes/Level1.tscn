@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bkc8r0lmofgo6" path="res://ASSETS/tilesheet/TileMapGameJam2026Stand1.png" id="6_6ll4n"]
 [ext_resource type="Texture2D" uid="uid://c5de8fhcai425" path="res://ASSETS/tilesheet/portrait_sheet.png" id="6_t3or0"]
 [ext_resource type="Texture2D" uid="uid://c1d350xg1msu0" path="res://ASSETS/Images/gold-mask.png" id="8_kylad"]
-[ext_resource type="Script" uid="uid://cpidiqpvta2gu" path="res://Scenes/red_mask.gd" id="10_2h8qs"]
+[ext_resource type="Script" path="res://Scenes/red_mask.gd" id="10_2h8qs"]
 [ext_resource type="Texture2D" uid="uid://bgsm03eon6k6n" path="res://ASSETS/Images/red-mask.png" id="10_bdlbp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
@@ -333,9 +333,22 @@ position = Vector2(272, 135)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=36016344]
 zoom = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D" unique_id=38580154]
-position = Vector2(-890.5, -399.5)
-scale = Vector2(1.5664063, 1.5664063)
+[node name="Control" type="Control" parent="Player/Camera2D" unique_id=1760865273]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Player/Camera2D/Control" unique_id=1159245525]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -27.925
+anchor_top = -14.15
+anchor_right = -27.925
+anchor_bottom = -14.15
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/Control/PanelContainer" unique_id=1639735693]
 texture = ExtResource("6_t3or0")
 hframes = 6
 

@@ -42,9 +42,13 @@ func physics_update(delta):
 			AudioController.stop_step()
 			state_machine.change_state(state_machine.jump)
 
+		
 		if Input.is_action_just_pressed("attack"):
-			AudioController.stop_step()
-			state_machine.change_state(state_machine.attack)
+			
+			if player.hasMask:
+				AudioController.stop_step()
+				state_machine.change_state(state_machine.attack)
+
 
 		if Input.is_action_pressed("below"):
 			AudioController.stop_step()

@@ -33,8 +33,10 @@ func handle_input(_event):
 	var dir := Input.get_axis("left", "right")
 
 	if Input.is_action_just_pressed("attack"):
-		AudioController.play_stab()
-		state_machine.change_state(state_machine.get_node("Attack"))
+		
+		if player.hasMask:
+			AudioController.play_stab()
+			state_machine.change_state(state_machine.attack)
 	elif Input.is_action_just_pressed("jump"):
 		AudioController.play_jump()
 		state_machine.change_state(state_machine.get_node("Jump"))

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var direction = 260
-var attack_cooldown = 3.0
+var attack_cooldown = 2.0
 var attack_timer = 0
 var push_timer = 2
 var pushed = false
@@ -42,7 +42,7 @@ func _physics_process(delta):
 	velocity.y += 45
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
-		if collider.name == "Player" and attack_timer <= 0:
+		if collider.name == "Player" and attack_timer <= 0 && get_parent().get_node("Player").hiding == false:
 			if !chasing_player:
 				AudioController.play_alert()
 				notice_player = true;
@@ -67,7 +67,10 @@ func _physics_process(delta):
 			
 		if !turning_around:
 			turning_around = true
-			turn_around_timer = 90
+			if chasing_player:
+				turn_around_timer = 45
+			else:
+				turn_around_timer = 90
 		
 		pass
 	if push_timer <= 0:
@@ -122,3 +125,11 @@ func get_pushed_back():
 
 func handle_platform_fallthrough():
 	set_collision_mask_value(5, true)
+
+func take_damage(amount: int):
+	HP -= amount
+	if HP == 0:
+		die()
+	
+func die():
+	queue_free()
